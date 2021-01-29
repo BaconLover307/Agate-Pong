@@ -4,6 +4,10 @@ using UnityEngine;
 
 public class SideWall : MonoBehaviour
 {
+    // Skrip GameManager untuk mengakses skor maksimal
+    [SerializeField]
+    private GameManager gameManager;
+
     // Pemain yang akan bertambah skornya jika bola menyentuh dinding ini.
     public PlayerControl player;
 
