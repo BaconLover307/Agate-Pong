@@ -22,6 +22,24 @@ public class PlayerControl : MonoBehaviour
     // Skor pemain
     private int score;
 
+    // Titik tumbukan terakhir dengan bola, untuk menampilkan variabel-variabel fisika terkait tumbukan tersebut
+    private ContactPoint2D lastContactPoint;
+
+    // Untuk mengakses informasi titik kontak dari kelas lain
+    public ContactPoint2D LastContactPoint
+    {
+        get { return lastContactPoint; }
+    }
+
+    // Ketika terjadi tumbukan dengan bola, rekam titik kontaknya.
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.name.Equals("Ball"))
+        {
+            lastContactPoint = collision.GetContact(0);
+        }
+    }
+
     // Menaikkan skor sebanyak 1 poin
     public void IncrementScore()
     {
@@ -91,7 +109,6 @@ public class PlayerControl : MonoBehaviour
 
         // Masukkan kembali posisinya ke transform.
         transform.position = position;
-
 
     }
 }

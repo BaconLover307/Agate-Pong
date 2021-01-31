@@ -11,6 +11,21 @@ public class BallControl : MonoBehaviour
     public float xInitialForce;
     public float yInitialForce;
 
+    // Titik asal lintasan bola saat ini
+    private Vector2 trajectoryOrigin;
+
+    // Ketika bola beranjak dari sebuah tumbukan, rekam titik tumbukan tersebut
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        trajectoryOrigin = transform.position;
+    }
+
+    // Untuk mengakses informasi titik asal lintasan
+    public Vector2 TrajectoryOrigin
+    {
+        get { return trajectoryOrigin; }
+    }
+
     void ResetBall()
     {
         // Reset posisi menjadi (0,0)
@@ -54,6 +69,7 @@ public class BallControl : MonoBehaviour
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        trajectoryOrigin = transform.position;
 
         // Mulai game
         RestartGame();
