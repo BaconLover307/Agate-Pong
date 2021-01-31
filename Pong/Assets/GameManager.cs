@@ -20,6 +20,9 @@ public class GameManager : MonoBehaviour
     // Skor maksimal
     public int maxScore;
 
+    // Objek untuk menggambar prediksi lintasan bola
+    public Trajectory trajectory;
+
     // Apakah debug window ditampilkan?
     private bool isDebugWindowShown = false;
 
@@ -64,6 +67,7 @@ public class GameManager : MonoBehaviour
         if (GUI.Button(new Rect(Screen.width / 2 - 60, Screen.height - 73, 120, 53), "TOGGLE\nDEBUG INFO"))
         {
             isDebugWindowShown = !isDebugWindowShown;
+            trajectory.enabled = !trajectory.enabled;
         }
 
         // Jika isDebugWindowShown == true, tampilkan text area untuk debug window.
