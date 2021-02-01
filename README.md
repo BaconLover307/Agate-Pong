@@ -4,7 +4,7 @@ This is a very basic Pong game made in Unity. It has its own rules, unlike the o
 
 This game is made as a study in game development, presented by Agate Academy.
 
-![Screenshot](./Docs/Screenshot.PNG)
+![Screenshot](./Docs/Screenshot.png)
 
 ## How To Run
 
