@@ -654,8 +654,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d3566ef91ce762144bc2cca2b9bb401f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialSpeed: 10
-  degreeRange: 45.4
+  initialForce: 60
+  degreeRange: 60
 --- !u!1001 &1585246595
 PrefabInstance:
   m_ObjectHideFlags: 0
