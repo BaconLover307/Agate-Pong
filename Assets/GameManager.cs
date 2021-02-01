@@ -19,7 +19,7 @@ public class GameManager : MonoBehaviour
 
     // Skor maksimal
     public int maxScore;
-
+    
     // Objek untuk menggambar prediksi lintasan bola
     public Trajectory trajectory;
 
@@ -39,6 +39,10 @@ public class GameManager : MonoBehaviour
             // Ketika tombol restart ditekan, reset skor kedua pemain...
             player1.ResetScore();
             player2.ResetScore();
+
+            // dan reset poewr up kedua pemain...
+            player1.ResetTimer();
+            player2.ResetTimer();
 
             // ...dan restart game.
             ball.SendMessage("RestartGame", 0.5f, SendMessageOptions.RequireReceiver);
@@ -61,6 +65,24 @@ public class GameManager : MonoBehaviour
 
             // ...dan kembalikan bola ke tengah.
             ball.SendMessage("ResetBall", null, SendMessageOptions.RequireReceiver);
+        }
+
+        // Tombol powerup untuk pemain 1
+        if (player1.CooldownTimer == 0)
+        {
+            if (GUI.Button(new Rect(Screen.width / 2 - 375, Screen.height - 73, 150, 50), "P1 POWER UP") || Input.GetKey(player1.powerButton))
+            {
+                player1.StartTimer();
+            }
+        }
+
+        // Tombol powerup untuk pemain 2
+        if (player2.CooldownTimer == 0)
+        {
+            if (GUI.Button(new Rect(Screen.width / 2 + 225, Screen.height - 73, 150, 50), "P2 POWER UP") || Input.GetKey(player2.powerButton))
+            {
+                player2.StartTimer();
+            }
         }
 
         // Toggle nilai debug window ketika pemain mengeklik tombol ini.

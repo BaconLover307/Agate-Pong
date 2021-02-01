@@ -10,6 +10,9 @@ public class PlayerControl : MonoBehaviour
     // Tombol untuk menggerakkan ke bawah
     public KeyCode downButton = KeyCode.S;
 
+    // Tombol untuk menggerakkan ke bawah
+    public KeyCode powerButton;
+
     // Kecepatan gerak
     public float speed = 10.0f;
 
@@ -18,6 +21,16 @@ public class PlayerControl : MonoBehaviour
 
     // Rigidbody 2D raket ini
     private Rigidbody2D rigidBody2D;
+
+    // Durasi untuk power up
+    public int powerDuration;
+
+    private float powerTimer;
+
+    public int powerCooldownDuration;
+
+    private float powerCooldownTimer;
+
 
     // Skor pemain
     private int score;
@@ -52,16 +65,38 @@ public class PlayerControl : MonoBehaviour
         score = 0;
     }
 
+
     // Mendapatkan nilai skor
     public int Score
     {
         get { return score; }
     }
 
+    // Mendapatkan timer cooldown
+    public float CooldownTimer
+    {
+        get { return powerCooldownTimer; }
+    }
+
+    // Memulai timer untuk powerup
+    public void StartTimer()
+    {
+        powerTimer = powerDuration;
+        powerCooldownTimer = powerCooldownDuration;
+    }
+
+    public void ResetTimer()
+    {
+        powerTimer = 0f;
+        powerCooldownTimer = powerCooldownDuration;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         rigidBody2D = GetComponent<Rigidbody2D>();
+        ResetTimer();
+
     }
 
     // Update is called once per frame
@@ -91,6 +126,22 @@ public class PlayerControl : MonoBehaviour
 
         // Masukkan kembali kecepatannya ke rigidBody2D.
         rigidBody2D.velocity = velocity;
+
+        // Power up system
+        Vector3 oriScale = transform.lossyScale;
+        if (powerTimer > 0f) {
+            transform.localScale = new Vector2(1f, 2f);
+            powerTimer -= Time.deltaTime;
+        } else {
+            if (powerCooldownTimer > 0f) {
+                powerCooldownTimer -= Time.deltaTime;
+            } else
+            {
+                powerCooldownTimer = 0;
+            }
+            powerTimer = 0;
+            transform.localScale = new Vector2(1f, 1f);
+        }
 
         // Dapatkan posisi raket sekarang.
         Vector3 position = transform.position;

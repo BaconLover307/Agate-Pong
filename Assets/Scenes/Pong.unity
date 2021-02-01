@@ -678,6 +678,21 @@ PrefabInstance:
       propertyPath: downButton
       value: 108
       objectReference: {fileID: 0}
+    - target: {fileID: 1309877052800364470, guid: 7468038c8b1272b4ba58a6ab0b0f9277,
+        type: 3}
+      propertyPath: powerDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309877052800364470, guid: 7468038c8b1272b4ba58a6ab0b0f9277,
+        type: 3}
+      propertyPath: powerCooldownDuration
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309877052800364470, guid: 7468038c8b1272b4ba58a6ab0b0f9277,
+        type: 3}
+      propertyPath: powerButton
+      value: 111
+      objectReference: {fileID: 0}
     - target: {fileID: 8849119264038293413, guid: 7468038c8b1272b4ba58a6ab0b0f9277,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -921,6 +936,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309877052800364470, guid: 7468038c8b1272b4ba58a6ab0b0f9277,
+        type: 3}
+      propertyPath: powerDuration
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309877052800364470, guid: 7468038c8b1272b4ba58a6ab0b0f9277,
+        type: 3}
+      propertyPath: powerCooldownDuration
+      value: 15
+      objectReference: {fileID: 0}
+    - target: {fileID: 1309877052800364470, guid: 7468038c8b1272b4ba58a6ab0b0f9277,
+        type: 3}
+      propertyPath: powerButton
+      value: 101
       objectReference: {fileID: 0}
     - target: {fileID: 8849119264038293413, guid: 7468038c8b1272b4ba58a6ab0b0f9277,
         type: 3}
